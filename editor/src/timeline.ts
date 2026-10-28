@@ -53,11 +53,12 @@ export const MODES: { mode: Mode; start: number }[] = [
   { mode: "C", start: T.cta },       // CTA
 ];
 
-export type CardId = "terminal" | "remotion" | "drop" | "transcript" | "motion" | "style" | "frames";
+export type CardId = "terminal" | "remotion" | "github" | "drop" | "transcript" | "motion" | "style" | "frames";
 
 export const CARDS: { id: CardId; start: number; end: number }[] = [
   { id: "terminal", start: 0.05, end: T.name },
-  { id: "remotion", start: T.remotion - 0.15, end: T.literally },
+  { id: "remotion", start: T.remotion - 0.15, end: T.free },  // real recording: cursor heads for "GitHub" and clicks…
+  { id: "github", start: T.free, end: T.literally },          // …which "opens" the real repo page
   { id: "drop", start: T.first, end: T.then },
   { id: "transcript", start: T.then, end: T.animated },
   { id: "motion", start: T.finally, end: T.plus },

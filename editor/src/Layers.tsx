@@ -272,3 +272,27 @@ export const Cta: React.FC<{ t: number; start: number }> = ({ t, start }) => {
     </div>
   );
 };
+
+// ---------- hand-drawn marks (drawn on stroke by stroke) ----------
+const wobble = (i: number, seed: number) => Math.sin(i * 1.7 + seed) * 0.5 + Math.sin(i * 0.63 + seed * 2.3) * 0.5;
+
+/** A marker-pen ellipse that overshoots its start, like circling something by hand. */
+export const ScribbleCircle: React.FC<{ t: number; start: number; end: number; cx: number; cy: number; w: number; h: number; seed?: number }> =
+  ({ t, start, end, cx, cy, w, h, seed = 1 }) => {
+    if (t < start || t > end) return null;
+    const p = ease(t, start, 0.45);
+    const out = 1 - ease(t, end - 0.15, 0.15);
+    const pts: string[] = [];
+    const N = 64;
+    for (let i = 0; i <= N; i++) {
+      const a = -2.4 + (i / N) * Math.PI * 2 * 1.12; // 1.12 turns: the end passes the start
+      const r = 1 + wobble(i, seed) * 0.06 + (i / N) * 0.08;
+      pts.push(`${i ? "L" : "M"}${(cx + Math.cos(a) * (w / 2) * r).toFixed(1)},${(cy + Math.sin(a) * (h / 2) * r).toFixed(1)}`);
+    }
+    return (
+      <svg style={{ position: "absolute", inset: 0, overflow: "visible", opacity: out, pointerEvents: "none" }} width="100%" height="100%">
+        <path d={pts.join(" ")} pathLength={1} fill="none" stroke={C.accent} strokeWidth={7} strokeLinecap="round" strokeLinejoin="round"
+          strokeDasharray={1} strokeDashoffset={1 - p} style={{ filter: `drop-shadow(0 2px 6px rgba(${C.accentGlow},0.45))` }} />
+      </svg>
+    );
+  };

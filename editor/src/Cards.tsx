@@ -1,10 +1,11 @@
 import React from "react";
-import { Img, staticFile } from "remotion";
+import { Img, OffthreadVideo, Sequence, staticFile } from "remotion";
 import captions from "../public/captions.json";
 import cutsData from "../public/cuts.json";
 import envelope from "../public/envelope.json";
 import { C, MONO, SANS, ease, lerp } from "./theme";
-import { T } from "./timeline";
+import { ScribbleCircle } from "./Layers";
+import { CARDS, T } from "./timeline";
 
 type Box = { x: number; y: number; w: number; h: number };
 type CardProps = { t: number; local: number; w: number; h: number };
@@ -55,30 +56,7 @@ export const TerminalCard: React.FC<CardProps> = ({ local }) => {
   );
 };
 
-// ---------------- remotion.dev with zooms + GitHub highlight ----------------
 const SHOT_W = 1520;
-const GH_BTN: Box = { x: 855, y: 1208, w: 363, h: 92 };
-export const RemotionCard: React.FC<CardProps> = ({ t, w, h }) => {
-  const keys = [
-    { at: 0, rect: { x: 0, y: 0, w: SHOT_W, h: (SHOT_W * h) / w } },
-    { at: T.free - 0.1, rect: { x: 760, y: 1080, w: 560, h: 340 } },   // "free" -> GitHub button
-    { at: T.turns - 0.05, rect: { x: 280, y: 560, w: 960, h: 520 } },   // "turns code into video" -> editor
-  ];
-  const f = animatedFocus(t, keys, w, h);
-  const hl = ease(t, T.free + 0.15, 0.3) * (1 - ease(t, T.turns - 0.1, 0.15));
-  return (
-    <div style={{ position: "absolute", inset: 0, background: "#fff" }}>
-      <div style={{ position: "absolute", left: f.x, top: f.y, transform: `scale(${f.s})`, transformOrigin: "0 0" }}>
-        <Img src={staticFile("shots/remotion_narrow.png")} style={{ width: SHOT_W, display: "block" }} />
-        <div style={{
-          position: "absolute", left: GH_BTN.x - 10, top: GH_BTN.y - 10, width: GH_BTN.w + 20, height: GH_BTN.h + 20,
-          border: `5px solid ${C.accent}`, borderRadius: 18, opacity: hl,
-          boxShadow: "0 0 24px rgba(255,106,26,0.6)",
-        }} />
-      </div>
-    </div>
-  );
-};
 
 // ---------------- drop footage -> cut pauses ----------------
 const cuts = cutsData.cuts as { s: number; e: number; t: number }[];
@@ -153,6 +131,8 @@ export const DropCard: React.FC<CardProps> = ({ t, w }) => {
           <span style={{ fontSize: 56, fontWeight: 800, color: C.accent }}>{fmt(total)}</span>
         </div>
       </div>
+      {/* hand-circle the final length */}
+      <ScribbleCircle t={t} start={T.automatically + 0.35} end={T.then} cx={268} cy={525} w={178} h={96} seed={5} />
     </div>
   );
 };
@@ -255,5 +235,30 @@ export const FramesCard: React.FC<CardProps> = ({ local, w, h }) => {
         position: "absolute", left: 0, right: 0, bottom: 18, textAlign: "center", fontFamily: MONO, fontSize: 24, color: "#5f6670",
       }}>analysing frame {String(idx + 1).padStart(2, "0")} / 24</div>
     </div>
+  );
+};
+
+// ---------------- real screen recordings (scripts/capture.mjs) ----------------
+const REC_CSS_W = 760; // recordings are 760 css px wide at 2x
+const recording = (file: string, startFrom: number, cardId: string): React.FC<CardProps> => ({ w }) => {
+  const card = CARDS.find((c) => c.id === cardId)!;
+  return (
+    <Sequence from={Math.round(card.start * 30)} layout="none">
+      <OffthreadVideo src={staticFile(`rec/${file}`)} startFrom={Math.round(startFrom * 30)} muted
+        style={{ position: "absolute", left: 0, top: 0, width: w, height: (w / REC_CSS_W) * 830 }} />
+    </Sequence>
+  );
+};
+
+export const RemotionRecCard = recording("remotion_home.mp4", 0.5, "remotion");
+const GithubRec = recording("github_repo.mp4", 0.4, "github");
+export const GithubRecCard: React.FC<CardProps> = (props) => {
+  const k = props.w / REC_CSS_W; // css px -> card px
+  return (
+    <>
+      <GithubRec {...props} />
+      {/* circle the real star count ("68.5k stars" sits at css 16..107 x 564..585 before scrolling) */}
+      <ScribbleCircle t={props.t} start={T.free + 1.0} end={T.free + 2.4} cx={62 * k} cy={575 * k} w={150 * k} h={44 * k} seed={2} />
+    </>
   );
 };

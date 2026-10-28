@@ -60,3 +60,9 @@ but replaces the identity layer so it doesn't read as a copy.
 - Green screen, centred, chest-up, and leave space above your head.
 - Say every line in full on each take, then pause about 0.5 s before the next attempt.
 - Record screen recordings of everything the script mentions (real recordings beat designed cards).
+
+## 5. Planned additions (being tried on branch `exp/v5`)
+- **Sign-off:** "Boys, let's go" on the signature sting, with an end card.
+- **Verdict stamp** (`VerdictStamp`) with your honest take before the CTA.
+- **Real screen recordings** (`scripts/capture.mjs`) and **hand-drawn circles** on real details.
+- **Sound design** per `styles/sound-design.md`: music energy curve, three effect tiers, signature sting.

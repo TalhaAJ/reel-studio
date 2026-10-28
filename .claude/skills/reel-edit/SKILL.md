@@ -25,13 +25,24 @@ ffmpeg is not on Git Bash PATH; scripts use the full winget path. Python scripts
    - Run `python build_cuts.py` and read the per-beat word timings it prints.
 4. **Plates:** `python render_plates.py` makes `public/voice.wav` (nearly raw voice; never add denoise or compression) and `public/face.webm` (custom green keyer, VP9 alpha). Takes about 4 min.
 5. **Scene plan** in `src/timeline.ts`: anchor everything to spoken words with `at("word", "beat")`, plus `MODES`, `CARDS`, `STEPS`, `EMPHASIS`. Card contents live in `src/Cards.tsx`. Build new cards there for each new topic. Prefer **real screen recordings** from the user. Otherwise use public pages captured with headless Edge (`msedge --headless=new --screenshot=… --window-size=760,900 --force-device-scale-factor=2`).
-6. **Sound** in `src/Reel.tsx` → `SFX` list + music (`MUSIC_VOL` 0.07). Effects are in `public/audio/`.
+   **Real screen recordings of websites:** add a shot to `SHOTS` in `scripts/capture.mjs` (url, cursor moves to selectors, clicks, scrolls), then run `node scripts/capture.mjs <name>`. It drives installed Edge frame by frame at 2x with a drawn cursor and writes `public/rec/<name>.mp4`. Use it via `recording(file, startFrom, cardId)` in `Cards.tsx`. Pages that need a login: the user signs in themselves. Never type their passwords.
+   **Hand-drawn marks:** `ScribbleCircle` (Layers.tsx) circles real details (numbers, results) as they're mentioned.
+6. **Sound** follows `styles/sound-design.md`:
+   - Run `python scripts/music_bed.py` (track offset plus muffled hook) after build_cuts.
+   - In `Reel.tsx`, `musicLevel()` sets the energy curve: duck under speech, swell in gaps, build, silence before the CTA.
+   - Three effect tiers: HERO = `hero(at)` riser → impact, max 3. SUPPORT = whoosh per layout switch. TEXTURE = quiet.
+   - The signature sting (`audio/sting_signature.wav`) plays on every STEP and on the sign-off.
 7. **Render:** `npx tsc -p .`, then `npx remotion render src/index.ts Reel ../output/_vN_raw.mp4 --log=error` (about 7 min, so run it in the background), then `python scripts/master.py ../output/_vN_raw.mp4 ../output/reel_vN.mp4` (-14 LUFS).
 8. **Verify before handing over:**
    - Make a 16-frame contact sheet and look at it: clipping, overlaps, readability.
    - Run `ebur128` and confirm I is about -14.0.
    - Re-transcribe the final mp4 with `scripts/transcribe.py` and confirm no repeated or missing lines.
    - Files over 30 MB can't reach the user's phone, so mention that or make a compressed copy.
+
+## Identity bits the user asked for
+- Sign-off catchphrase: **"Boys, let's go"**, on the sting plus an end card (they'll say it in future recordings).
+- **Verdict** before the CTA: `VerdictStamp` in `src/Verdict.tsx` over a full-face section, using the user's own spoken verdict. Never invent their opinion.
+- They'll gesture with their hands more: check the key doesn't clip hands at the frame edges.
 
 ## Working with the user
 - They want to see progress and the process. Give short updates while long renders run.
