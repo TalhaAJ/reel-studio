@@ -61,16 +61,22 @@
    "t": 20.949
   },
   {
-   "s": 35.9,
-   "e": 36.845,
+   "s": 43.28,
+   "e": 43.416,
    "beat": "clone",
    "t": 22.871
   },
   {
-   "s": 37.379,
-   "e": 39.82,
+   "s": 43.773,
+   "e": 44.996,
    "beat": "clone",
-   "t": 23.816
+   "t": 23.007
+  },
+  {
+   "s": 45.103,
+   "e": 46.15,
+   "beat": "clone",
+   "t": 24.23
   },
   {
    "s": 46.2,
@@ -79,67 +85,67 @@
    "gap": true,
    "wav": "voiceclone_en_this-isnt-me.wav",
    "lead": 0.3,
-   "t": 26.257
+   "t": 25.277
   },
   {
    "s": 53.24,
    "e": 55.536,
    "beat": "finally",
-   "t": 29.467
+   "t": 28.487
   },
   {
    "s": 55.593,
    "e": 58.2,
    "beat": "finally",
-   "t": 31.763
+   "t": 30.783
   },
   {
    "s": 58.27,
    "e": 59.05,
    "beat": "damn",
-   "t": 34.37
+   "t": 33.39
   },
   {
    "s": 60.755,
    "e": 65.9,
    "beat": "plus",
-   "t": 35.15
+   "t": 34.17
   },
   {
    "s": 66.94,
    "e": 68.787,
    "beat": "verdict",
-   "t": 40.295
+   "t": 39.315
   },
   {
    "s": 68.84,
    "e": 70.5,
    "beat": "verdict",
-   "t": 42.142
+   "t": 41.162
   },
   {
    "s": 76.89,
    "e": 79.6,
    "beat": "pocket",
-   "t": 43.802
+   "t": 42.822
   },
   {
    "s": 82.44,
    "e": 86.3,
    "beat": "cta",
-   "t": 46.512
+   "t": 45.532
   },
   {
    "s": 86.08,
    "e": 86.306,
    "beat": "signoff",
-   "t": 50.372
+   "t": 49.392
   },
   {
    "s": 86.43,
    "e": 87.7,
    "beat": "signoff",
-   "t": 50.598
+   "t": 49.618
   },
   {
    "s": 46.2,
@@ -148,7 +154,7 @@
    "gap": true,
    "wav": "voiceclone_ja_bomboclatt.wav",
    "lead": 0.15,
-   "t": 51.868
+   "t": 50.888
   }
  ],
  "beats": [
@@ -175,43 +181,43 @@
   {
    "name": "clone",
    "first": 10,
-   "count": 2
+   "count": 3
   },
   {
    "name": "finally",
-   "first": 13,
+   "first": 14,
    "count": 2
   },
   {
    "name": "damn",
-   "first": 15,
-   "count": 1
-  },
-  {
-   "name": "plus",
    "first": 16,
    "count": 1
   },
   {
-   "name": "verdict",
+   "name": "plus",
    "first": 17,
+   "count": 1
+  },
+  {
+   "name": "verdict",
+   "first": 18,
    "count": 2
   },
   {
    "name": "pocket",
-   "first": 19,
-   "count": 1
-  },
-  {
-   "name": "cta",
    "first": 20,
    "count": 1
   },
   {
-   "name": "signoff",
+   "name": "cta",
    "first": 21,
+   "count": 1
+  },
+  {
+   "name": "signoff",
+   "first": 22,
    "count": 2
   }
  ],
- "total": 54.498
+ "total": 53.518
 }
