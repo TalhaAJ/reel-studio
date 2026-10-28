@@ -1,7 +1,7 @@
 import React from "react";
 import { AbsoluteFill, OffthreadVideo, staticFile, useCurrentFrame } from "remotion";
 import { C, MONO, SANS, ease, lerp, pop } from "./theme";
-import { Mode } from "./timeline";
+import type { Mode } from "./timeline";
 
 // ---------- geometry (1080x1920) ----------
 export type Rect = { x: number; y: number; w: number; h: number };
@@ -70,7 +70,8 @@ export const FaceBg: React.FC = () => (
 // ---------- face ----------
 const SRC_FACE_TOP = 525; // y of the top of the head in the source frame
 
-export const Face: React.FC<{ mode: Mode; t: number; modeStart: number }> = ({ mode, t, modeStart }) => {
+export const Face: React.FC<{ mode: Mode; t: number; modeStart: number; faceTop?: number; faceCx?: number }> =
+  ({ mode, t, modeStart, faceTop = SRC_FACE_TOP, faceCx = 575 }) => {
   if (mode === "B") {
     // keep the decoder warm but invisible
     return (
@@ -83,15 +84,15 @@ export const Face: React.FC<{ mode: Mode; t: number; modeStart: number }> = ({ m
   if (mode === "A") {
     s = 0.92;
     left = (1080 - 1080 * s) / 2;
-    top = 1062 - SRC_FACE_TOP * s;
+    top = 1062 - faceTop * s;
     const { x, y, w } = FACE_CARD;
     // head may break out above the card; below the card top, stay inside the card's width
     clip = `polygon(0 0, 1080px 0, 1080px ${y}px, ${x + w}px ${y}px, ${x + w}px 1920px, ${x}px 1920px, ${x}px ${y}px, 0 ${y}px)`;
   } else {
     // full face, slow push-in
     s = lerp(1.32, 1.4, Math.min(1, (t - modeStart) / 6));
-    left = 540 - 575 * s;
-    top = 770 - 1000 * s;
+    left = 540 - faceCx * s;
+    top = 770 - (1000 + faceTop - SRC_FACE_TOP) * s;
   }
   return (
     <AbsoluteFill style={{ clipPath: clip }}>
