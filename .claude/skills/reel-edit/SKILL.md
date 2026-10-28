@@ -1,12 +1,12 @@
 ---
 name: reel-edit
-description: Edit a new talking-head reel in the user's saved house style (default "Electric Orange v1") with the Remotion template in editor/. Use when the user drops new footage in raw-footage/, asks to edit/cut/make a reel, or says "use my style" / names a style preset.
+description: Edit a new talking-head reel in the user's saved house style (default "Electric Orange v2") with the Remotion template in editor/. Use when the user drops new footage in raw-footage/, asks to edit/cut/make a reel, or says "use my style" / names a style preset.
 ---
 
 # Edit a reel in the saved house style
 
 The user films vertical green-screen talking heads on an iPhone and wants them edited into fast tech-explainer reels.
-Their **style presets** live in `styles/`. Unless they name another, use `styles/electric-orange-v1.md`.
+Their **style presets** live in `styles/`. Unless they name another, use `styles/electric-orange-v2.md` (the posted VoiceStudio look). `electric-orange-v1.md` is the earlier look.
 Read it first: it is the spec for colours, captions, layouts, sound and loudness.
 `analysis/STYLE_GUIDE.md` describes the reference creator the structure came from. Use it for structure only, never for identity.
 
