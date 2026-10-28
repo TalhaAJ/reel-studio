@@ -14,7 +14,9 @@ const at = (w: string, nth = 0) => WORDS.filter((x) => clean(x.w) === w)[nth].s;
 
 export const FACT = "#2BD67B";
 export const CAP = "#FF4D4D";
-const FACE = { faceTop: 610, faceCx: 530 }; // Part1.MOV framing
+// Part1.MOV framing. Full face sits smaller and lower than usual so the overlays live above your head.
+const FACE = { faceTop: 610, faceCx: 530, cScale: [1.0, 1.05] as [number, number], cHeadY: 760 };
+const CAPTION_Y = 1600; // on your chest, clear of your mouth
 
 const FREEZE = cutsData.freeze;            // reel time = output time (the reel starts at 0)
 const T = {
@@ -58,7 +60,7 @@ const ReelCard: React.FC<{ t: number }> = ({ t }) => {
   return (
     <div style={{
       position: "absolute", left: r.x + shake, top: r.y, width: r.w, height: r.h, borderRadius: 26, overflow: "hidden",
-      transform: `rotate(${r.rot}deg) scale(${lerp(0.9, 1, enter)})`, opacity: Math.min(1, enter * 2),
+      transform: `rotate(${r.rot}deg) scale(${lerp(0.9, 1, enter)})`, opacity: Math.min(1, enter * 2) * (1 - ease(t, T.three - 0.25, 0.25)),
       border: `4px solid ${frozen ? "#8a8178" : C.accent}`,
       boxShadow: frozen ? "0 30px 60px rgba(0,0,0,0.6)" : `0 0 0 3px rgba(${C.accentGlow},0.25), 0 0 40px rgba(${C.accentGlow},0.45)`,
       background: "#000",
@@ -77,22 +79,26 @@ const ReelCard: React.FC<{ t: number }> = ({ t }) => {
   );
 };
 
-// big "FACT or CAP?" slam on the freeze
+// big "FACT or CAP?" slam on the freeze: centred, huge, on a dimmed frame
 const Slam: React.FC<{ t: number }> = ({ t }) => {
   const s = T.freeze + 0.05;
-  if (t < s || t > T.freeze + 1.7) return null;
+  if (t < s || t > T.freeze + 1.75) return null;
   const p = pop(t, s, 0.3);
-  const out = 1 - ease(t, T.freeze + 1.45, 0.25);
+  const out = 1 - ease(t, T.freeze + 1.45, 0.3);
+  const shake = t - s < 0.25 ? Math.sin((t - s) * 90) * (0.25 - (t - s)) * 40 : 0;
   return (
-    <div style={{
-      position: "absolute", top: 560, width: 1080, textAlign: "center", opacity: Math.min(1, p * 2) * out,
-      transform: `scale(${lerp(1.8, 1, p)}) rotate(-5deg)`, fontFamily: SANS, fontWeight: 900, letterSpacing: -6, lineHeight: 0.92,
-      textShadow: "0 10px 40px rgba(0,0,0,0.7)",
-    }}>
-      <div style={{ fontSize: 200, color: FACT }}>FACT</div>
-      <div style={{ fontSize: 110, color: "#fff", letterSpacing: -2 }}>or</div>
-      <div style={{ fontSize: 200, color: CAP }}>CAP?</div>
-    </div>
+    <AbsoluteFill style={{ background: `rgba(10,8,7,${0.55 * Math.min(1, p * 2) * out})` }}>
+      <div style={{
+        position: "absolute", top: 960, left: 540, opacity: Math.min(1, p * 2) * out,
+        transform: `translate(-50%, -50%) translate(${shake}px, ${shake * 0.5}px) scale(${lerp(2.2, 1, p)}) rotate(-4deg)`,
+        fontFamily: SANS, fontWeight: 900, textAlign: "center", lineHeight: 0.86, whiteSpace: "nowrap",
+        textShadow: "0 14px 50px rgba(0,0,0,0.75)",
+      }}>
+        <div style={{ fontSize: 330, letterSpacing: -14, color: FACT }}>FACT</div>
+        <div style={{ fontSize: 140, letterSpacing: -4, color: "#fff", margin: "6px 0 2px" }}>or</div>
+        <div style={{ fontSize: 330, letterSpacing: -14, color: CAP }}>CAP?</div>
+      </div>
+    </AbsoluteFill>
   );
 };
 
@@ -118,7 +124,7 @@ const ClaimQuote: React.FC<{ t: number }> = ({ t }) => {
 const Challenges: React.FC<{ t: number }> = ({ t }) => {
   if (t < T.three - 0.1) return null;
   return (
-    <div style={{ position: "absolute", top: 250, width: 1080, display: "flex", justifyContent: "center", gap: 22 }}>
+    <div style={{ position: "absolute", top: 360, width: 1080, display: "flex", justifyContent: "center", gap: 22 }}>
       {[0, 1, 2].map((i) => {
         const p = pop(t, T.three - 0.1 + i * 0.16, 0.3);
         return (
@@ -206,7 +212,7 @@ export const FocHook: React.FC = () => {
         <ClaimQuote t={t} />
         <Challenges t={t} />
         <Badge t={t} />
-        <Captions t={t} y={1330} />
+        <Captions t={t} y={CAPTION_Y} />
       </AbsoluteFill>
 
       {/* their reel's own clean audio while it plays; your phone audio is muted under it */}

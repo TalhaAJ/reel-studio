@@ -70,8 +70,10 @@ export const FaceBg: React.FC = () => (
 // ---------- face ----------
 const SRC_FACE_TOP = 525; // y of the top of the head in the source frame
 
-export const Face: React.FC<{ mode: Mode; t: number; modeStart: number; faceTop?: number; faceCx?: number }> =
-  ({ mode, t, modeStart, faceTop = SRC_FACE_TOP, faceCx = 575 }) => {
+export const Face: React.FC<{
+  mode: Mode; t: number; modeStart: number; faceTop?: number; faceCx?: number;
+  cScale?: [number, number]; cHeadY?: number; // full-face size (start -> end of push-in) and where the head top lands
+}> = ({ mode, t, modeStart, faceTop = SRC_FACE_TOP, faceCx = 575, cScale, cHeadY }) => {
   if (mode === "B") {
     // keep the decoder warm but invisible
     return (
@@ -90,9 +92,10 @@ export const Face: React.FC<{ mode: Mode; t: number; modeStart: number; faceTop?
     clip = `polygon(0 0, 1080px 0, 1080px ${y}px, ${x + w}px ${y}px, ${x + w}px 1920px, ${x}px 1920px, ${x}px ${y}px, 0 ${y}px)`;
   } else {
     // full face, slow push-in
-    s = lerp(1.32, 1.4, Math.min(1, (t - modeStart) / 6));
+    const [s0, s1] = cScale ?? [1.32, 1.4];
+    s = lerp(s0, s1, Math.min(1, (t - modeStart) / 6));
     left = 540 - faceCx * s;
-    top = 770 - (1000 + faceTop - SRC_FACE_TOP) * s;
+    top = cHeadY !== undefined ? cHeadY - faceTop * s : 770 - (1000 + faceTop - SRC_FACE_TOP) * s;
   }
   return (
     <AbsoluteFill style={{ clipPath: clip }}>
