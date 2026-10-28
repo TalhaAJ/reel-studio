@@ -30,19 +30,28 @@ const T = {
 const TOTAL = cutsData.total;
 
 // reel card while it plays (portrait, centred above your face card)
-const REEL = { x: 280, y: 112, w: 520, h: 924 };
+const REEL = { x: 300, y: 196, w: 480, h: 853 };
 // after the freeze it becomes a tilted piece of "evidence" in the top-left
 const EVID = { x: 70, y: 150, w: 300, h: 533, rot: -6 };
 
+// Series title. While their reel plays it's a big header above the reel; after the freeze it lives in the corner.
 const Badge: React.FC<{ t: number }> = ({ t }) => {
-  const p = pop(t, 0.15, 0.35);
+  const p = pop(t, 0.1, 0.35);
+  const small = ease(t, T.freeze + 1.5, 0.35);          // shrink into the corner once the slam has gone
+  const hide = t >= T.freeze && t < T.freeze + 1.5;     // the slam is the title for that moment
+  if (hide) return null;
+  const big = t < T.freeze;
+  const fs = big ? 84 : lerp(84, 30, small);
   return (
     <div style={{
-      position: "absolute", right: 46, top: 52, transform: `scale(${lerp(0.6, 1, p)})`, opacity: Math.min(1, p * 2),
-      display: "flex", alignItems: "center", gap: 10, padding: "10px 20px", borderRadius: 999, background: "#141210",
-      border: `3px solid ${C.accent}`, fontFamily: SANS, fontWeight: 900, fontSize: 30, letterSpacing: 1, color: "#fff",
+      position: "absolute", left: big ? 540 : lerp(540, 1080 - 46 - 150, small), top: big ? 92 : lerp(92, 74, small),
+      transform: `translate(-50%, -50%) scale(${lerp(0.6, 1, p)}) rotate(${big ? -2 : 0}deg)`, opacity: Math.min(1, p * 2),
+      display: "flex", alignItems: "center", gap: fs * 0.3, padding: `${fs * 0.22}px ${fs * 0.55}px`, borderRadius: 999,
+      background: "#141210", border: `${big ? 5 : 3}px solid ${C.accent}`, whiteSpace: "nowrap",
+      boxShadow: big ? `0 0 40px rgba(${C.accentGlow},0.5)` : "none",
+      fontFamily: SANS, fontWeight: 900, fontSize: fs, letterSpacing: -1, color: "#fff", lineHeight: 1,
     }}>
-      <span style={{ color: FACT }}>FACT</span><span style={{ color: "#8a8178", fontSize: 24 }}>or</span><span style={{ color: CAP }}>CAP</span>
+      <span style={{ color: FACT }}>FACT</span><span style={{ color: "#8a8178", fontSize: fs * 0.7 }}>or</span><span style={{ color: CAP }}>CAP?</span>
     </div>
   );
 };
