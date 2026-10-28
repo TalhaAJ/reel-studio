@@ -23,7 +23,7 @@ TAKES = [
     (5.40, 12.40, "name", "It's called VoiceStudio, it's completely open source and it just blew up on GitHub with over 90,000 stars."),
     (12.42, 19.20, "first", "First, you give it a short clip of your own voice and it clones it right on your computer. Nothing gets uploaded."),
     (27.38, 31.47, "then", "Then you type anything you want and it reads it back in your own voice."),       # 2nd take (1st ran on)
-    (35.96, 39.72, "clone", "I cloned mine, England accent and all. Listen to this."),                         # restart after "I cloned mine… actually"
+    (43.34, 46.05, "clone", "I cloned my own voice, and listen to this."),
     (53.30, 58.10, "finally", "Finally, it can dub your own videos into 640+ languages."),                    # "And" is under the noise floor
     (58.33, 58.95, "damn", "Damn."),
     (60.70, 65.80, "plus", "Plus there's no account and no API key and it runs on Windows, Mac and Linux."),

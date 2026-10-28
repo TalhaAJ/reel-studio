@@ -229,8 +229,8 @@ const GithubRec = recording("vs_github.mp4", GITHUB_FROM, "github");
 export const GithubRecCard: React.FC<CardProps> = (props) => {
   const k = props.w / REC_CSS_W; // css px -> card px
   const card = CARDS.find((c) => c.id === "github")!;
-  const landed = card.start + (1.3 - GITHUB_FROM);  // cursor reaches the star count
-  const scrolls = card.start + (2.5 - GITHUB_FROM); // page starts scrolling
+  const landed = card.start + (3.53 - GITHUB_FROM); // cursor reaches the star count (capture.mjs: wait 2.6 + move 0.93)
+  const scrolls = card.start + (4.73 - GITHUB_FROM); // page starts scrolling
   return (
     <>
       <GithubRec {...props} />

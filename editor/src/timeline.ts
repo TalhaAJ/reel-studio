@@ -21,6 +21,7 @@ export const T = {
   name: beatStart("name"),
   voicestudio: at("voicestudio", "name"),
   github: at("github", "name"),
+  completely: at("completely", "name"),
   over: at("over", "name"),
   stars: at("stars", "name"),
   first: beatStart("first"),
@@ -31,7 +32,6 @@ export const T = {
   type: at("type", "then"),
   reads: at("reads", "then"),
   clone: beatStart("clone"),
-  accent: at("accent", "clone"),
   listen: at("listen", "clone"),
   cloneEnd: beatEnd("clone"),
   proof1: beatStart("proof1") - 0.25,   // insert starts 0.3 s before the clone speaks
@@ -74,8 +74,8 @@ export type CardId = "hook" | "site" | "github" | "clip" | "type" | "proof" | "d
 
 export const CARDS: { id: CardId; start: number; end: number }[] = [
   { id: "hook", start: 0.05, end: T.name },
-  { id: "site", start: T.voicestudio - 0.15, end: T.github - 0.2 },
-  { id: "github", start: T.github - 0.2, end: T.first },
+  { id: "site", start: T.voicestudio - 0.15, end: T.completely - 0.1 },
+  { id: "github", start: T.completely - 0.1, end: T.first },   // "completely open source … on GitHub … stars"
   { id: "clip", start: T.first, end: T.then },
   { id: "type", start: T.then, end: T.clone },
   { id: "proof", start: T.proof1, end: T.finally },
@@ -97,7 +97,7 @@ export const STEPS_END = T.damn;
 // Words that get the orange marker (first match per caption chunk)
 export const EMPHASIS = new Set([
   "clone", "free", "elevenlabs", "subscription", "voicestudio", "open", "github", "stars",
-  "clip", "clones", "computer", "nothing", "anything", "voice", "england", "accent", "listen",
+  "clip", "clones", "computer", "nothing", "anything", "voice", "listen",
   "dub", "languages", "damn", "account", "api", "windows", "mac", "linux",
   "sick", "worth", "pocket", "link", "talking", "bomboclatt",
 ]);

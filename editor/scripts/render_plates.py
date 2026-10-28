@@ -42,7 +42,13 @@ def loudnorm_linear(src, dst, pre="highpass=f=60", target=-16):
           f":measured_LRA={m['input_lra']}:measured_thresh={m['input_thresh']}:offset={m['target_offset']}")
     subprocess.run([FF, "-v", "error", "-y", "-i", src, "-vn", "-af", af, "-ar", "48000", dst], check=True)
 
-loudnorm_linear(cut_mov, os.path.join(PUB, "voice.wav"))
+# Room echo: a gentle low-mid dip (the boxy "room" band) plus a soft downward expander that pulls the
+# reverb tail down ~9 dB between words. No denoise, no compressor: the voice itself is untouched.
+ROOM_EQ = "highpass=f=80,equalizer=f=320:t=o:w=1.3:g=-3"
+GATE = "agate=threshold=0.05:ratio=2:range=0.3:attack=2:release=50:knee=3:detection=rms"  # echo tails below about -32 dBFS drop 10 dB; speech untouched
+raw_voice = os.path.join(ROOT, "analysis", "mine", "voice_raw.wav")
+loudnorm_linear(cut_mov, raw_voice, pre=ROOM_EQ)
+subprocess.run([FF, "-v", "error", "-y", "-i", raw_voice, "-af", GATE, "-ar", "48000", os.path.join(PUB, "voice.wav")], check=True)
 if "--audio-only" in sys.argv:
     sys.exit(0)
 

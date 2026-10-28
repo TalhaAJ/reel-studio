@@ -45,7 +45,7 @@ export const SHOTS = {
   vs_github: {
     url: "https://github.com/debpalash/VoiceStudio", w: 760, h: 830,
     steps: [
-      { wait: 0.4 },
+      { wait: 2.6 }, // hold on the repo header while you say the name
       { move: [380, 600], dur: 0.01 },
       { move: "span:text-matches('^[0-9.]+k stars$')", dur: 0.9, dx: 58, dy: 10 },
       { wait: 1.2 },
