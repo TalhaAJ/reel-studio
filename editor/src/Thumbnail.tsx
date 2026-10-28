@@ -7,7 +7,7 @@ import { C, MONO, SANS } from "./theme";
 export const Thumbnail: React.FC = () => (
   <AbsoluteFill>
     <FaceBg />
-    {/* you, mid "no subscription" */}
+    {/* you, eyebrow raised, mouth shut */}
     <Img src={staticFile("thumb_face.png")} style={{
       position: "absolute", left: "50%", top: 110, width: 1080 * 1.18,
       transform: "translateX(-50%)", filter: "drop-shadow(0 30px 60px rgba(0,0,0,0.55))",
