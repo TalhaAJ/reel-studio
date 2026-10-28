@@ -13,57 +13,74 @@ export const at = (word: string, beat?: string, nth = 0): number => {
   return hits[nth].s;
 };
 const beatStart = (beat: string) => Math.max(0, WORDS.find((x) => x.beat === beat)!.s - 0.05);
+const beatEnd = (beat: string) => [...WORDS].reverse().find((x) => x.beat === beat)!.e;
 
 export const T = {
+  elevenlabs: at("elevenlabs", "hook"),
+  subscription: at("subscription", "hook"),
   name: beatStart("name"),
-  remotion: at("remotion", "name"),
-  free: at("free", "name"),
-  turns: at("turns", "name"),
-  literally: at("literally", "name"),
+  voicestudio: at("voicestudio", "name"),
+  github: at("github", "name"),
+  over: at("over", "name"),
+  stars: at("stars", "name"),
   first: beatStart("first"),
-  drop: at("drop", "first"),
-  cut: at("cut", "first"),
-  automatically: at("automatically", "first"),
+  clip: at("clip", "first"),
+  clones: at("clones", "first"),
+  nothing: at("nothing", "first"),
   then: beatStart("then"),
-  animated: at("animated", "then"),
+  type: at("type", "then"),
+  reads: at("reads", "then"),
+  clone: beatStart("clone"),
+  accent: at("accent", "clone"),
+  listen: at("listen", "clone"),
+  cloneEnd: beatEnd("clone"),
+  proof1: beatStart("proof1") - 0.25,   // insert starts 0.3 s before the clone speaks
   finally: beatStart("finally"),
-  screen: at("screen", "finally"),
-  zooms: at("zooms", "finally"),
-  glowing: at("glowing", "finally"),
-  even: at("even", "finally"),
+  dub: at("dub", "finally"),
+  languages: at("languages", "finally"),
+  damn: beatStart("damn"),
   plus: beatStart("plus"),
-  reel: at("reel", "plus"),
-  study: at("study", "plus"),
-  frame: at("frame", "plus"),
-  recreate: at("recreate", "plus"),
+  account: at("account", "plus"),
+  api: at("api", "plus"),
+  windows: at("windows", "plus"),
+  mac: at("mac", "plus"),
+  linux: at("linux", "plus"),
+  verdict: beatStart("verdict"),
+  sick: at("sick", "verdict"),
+  free: at("free", "verdict"),
+  pocket: beatStart("pocket"),
+  pocketWord: at("pocket", "pocket"),
   cta: beatStart("cta"),
   comment: at("comment", "cta"),
+  signoff: beatStart("signoff"),
+  proof2: beatStart("proof2") - 0.1,
 };
 
 export type Mode = "A" | "B" | "C"; // A = split (card + face cutout), B = dark screen focus, C = full face
 
 export const MODES: { mode: Mode; start: number }[] = [
   { mode: "A", start: 0 },           // hook
-  { mode: "B", start: T.name },      // "It's called Remotion"
-  { mode: "C", start: T.literally }, // "literally write the entire video for you"
-  { mode: "A", start: T.first },     // "First, you drop in your raw footage"
-  { mode: "C", start: T.animated },  // "animated captions that pop exactly as you speak"
-  { mode: "B", start: T.finally },   // "And finally, motion graphics"
-  { mode: "A", start: T.plus },      // "Plus, show a reel you love"
-  { mode: "C", start: T.cta },       // CTA
+  { mode: "B", start: T.name },      // "It's called VoiceStudio" -> site, then GitHub
+  { mode: "A", start: T.first },     // STEP 1: clip -> clone
+  { mode: "C", start: T.clone },     // "I cloned mine, England accent and all"
+  { mode: "B", start: T.proof1 },    // PROOF: the clone speaks
+  { mode: "B", start: T.finally },   // STEP 3: dub into 640+ languages
+  { mode: "C", start: T.damn },      // "Damn."
+  { mode: "A", start: T.plus },      // no account / no API key / Win Mac Linux
+  { mode: "C", start: T.verdict },   // verdict + CTA + sign-off
 ];
 
-export type CardId = "terminal" | "remotion" | "github" | "drop" | "transcript" | "motion" | "style" | "frames";
+export type CardId = "hook" | "site" | "github" | "clip" | "type" | "proof" | "dub" | "plus";
 
 export const CARDS: { id: CardId; start: number; end: number }[] = [
-  { id: "terminal", start: 0.05, end: T.name },
-  { id: "remotion", start: T.remotion - 0.15, end: T.free },  // real recording: cursor heads for "GitHub" and clicks…
-  { id: "github", start: T.free, end: T.literally },          // …which "opens" the real repo page
-  { id: "drop", start: T.first, end: T.then },
-  { id: "transcript", start: T.then, end: T.animated },
-  { id: "motion", start: T.finally, end: T.plus },
-  { id: "style", start: T.plus, end: T.frame },
-  { id: "frames", start: T.frame, end: T.cta },
+  { id: "hook", start: 0.05, end: T.name },
+  { id: "site", start: T.voicestudio - 0.15, end: T.github - 0.2 },
+  { id: "github", start: T.github - 0.2, end: T.first },
+  { id: "clip", start: T.first, end: T.then },
+  { id: "type", start: T.then, end: T.clone },
+  { id: "proof", start: T.proof1, end: T.finally },
+  { id: "dub", start: T.finally, end: T.damn },
+  { id: "plus", start: T.plus, end: T.verdict },
 ];
 
 export const modeAt = (t: number): Mode => {
@@ -75,12 +92,12 @@ export const modeAt = (t: number): Mode => {
 export const HOOK_END = T.name;
 export const CTA_START = T.comment;
 export const STEPS = [T.first, T.then, T.finally]; // "STEP 1/3" counter
-export const STEPS_END = T.plus;
+export const STEPS_END = T.damn;
 
 // Words that get the orange marker (first match per caption chunk)
 export const EMPHASIS = new Set([
-  "talking", "claude", "premiere", "capcut", "remotion", "free", "video", "entire",
-  "footage", "pause", "mistake", "transcribes", "word", "animated", "captions", "pop",
-  "motion", "graphics", "zooms", "glowing", "borders", "count", "reel", "style",
-  "frame", "recreate", "setup",
+  "clone", "free", "elevenlabs", "subscription", "voicestudio", "open", "github", "stars",
+  "clip", "clones", "computer", "nothing", "anything", "voice", "england", "accent", "listen",
+  "dub", "languages", "damn", "account", "api", "windows", "mac", "linux",
+  "sick", "worth", "pocket", "link", "talking", "bomboclatt",
 ]);

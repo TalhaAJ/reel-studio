@@ -42,6 +42,31 @@ export const SHOTS = {
       { wait: 0.6 },
     ],
   },
+  vs_github: {
+    url: "https://github.com/debpalash/VoiceStudio", w: 760, h: 830,
+    steps: [
+      { wait: 0.4 },
+      { move: [380, 600], dur: 0.01 },
+      { move: "span:text-matches('^[0-9.]+k stars$')", dur: 0.9, dx: 58, dy: 10 },
+      { wait: 1.2 },
+      { scroll: "article", dur: 1.6, offset: -60 },
+      { move: [420, 500], dur: 0.8 },
+      { scroll: 1100, dur: 2.0, relative: true },
+      { wait: 0.6 },
+    ],
+  },
+  vs_site: {
+    url: "https://voicestudio.sh/", w: 760, h: 830,
+    steps: [
+      { wait: 0.8 },
+      { move: [600, 300], dur: 0.01 },
+      { move: [380, 520], dur: 0.9 },
+      { scroll: 900, dur: 1.8, relative: true },
+      { wait: 0.5 },
+      { scroll: 900, dur: 1.8, relative: true },
+      { wait: 0.8 },
+    ],
+  },
 };
 
 const easeInOut = (p) => (p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2);
@@ -64,7 +89,7 @@ const CURSOR_JS = `
   })();`;
 
 async function capture(name, shot, browser) {
-  const ctx = await browser.newContext({ viewport: { width: shot.w, height: shot.h }, deviceScaleFactor: 2, colorScheme: "light", locale: "en-GB" });
+  const ctx = await browser.newContext({ viewport: { width: shot.w, height: shot.h }, deviceScaleFactor: 2, colorScheme: "light", locale: "en-GB", bypassCSP: true });
   const page = await ctx.newPage();
   await page.goto(shot.url, { waitUntil: "load", timeout: 60000 });
   await page.waitForTimeout(2500);

@@ -6,7 +6,7 @@ while skin, hair and the grey jumper are not, so they survive intact.
 import numpy as np
 
 T_LO, T_HI = 22.0, 50.0   # dominance below T_LO = fully opaque, above T_HI = fully transparent
-WALL_Y = 380              # everything above this (white wall, clamp) is masked out (garbage matte)
+WALL_Y = 260              # everything above this (white wall, clamp) is masked out (garbage matte)
 
 
 def key(rgb: np.ndarray) -> np.ndarray:

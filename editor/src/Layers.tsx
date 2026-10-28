@@ -68,7 +68,7 @@ export const FaceBg: React.FC = () => (
 );
 
 // ---------- face ----------
-const SRC_FACE_TOP = 600; // y of the top of the head in the source frame
+const SRC_FACE_TOP = 525; // y of the top of the head in the source frame
 
 export const Face: React.FC<{ mode: Mode; t: number; modeStart: number }> = ({ mode, t, modeStart }) => {
   if (mode === "B") {
@@ -198,9 +198,7 @@ export const StatCard: React.FC<{ t: number; start: number; end: number; value: 
   };
 
 // ---------- hook title ----------
-export const HookTitle: React.FC<{ t: number }> = ({ t }) => {
-  const l1 = ["Edit", "Your", "Videos"];
-  const l2 = ["By", "Talking", "To", "AI"];
+export const HookTitle: React.FC<{ t: number; l1: string[]; l2: string[] }> = ({ t, l1, l2 }) => {
   const wordStyle = (start: number): React.CSSProperties => {
     const p = pop(t, start, 0.22);
     return { opacity: Math.min(1, p * 2), transform: `translateY(${(1 - p) * 26}px)`, display: "inline-block", marginRight: 18 };
@@ -253,8 +251,8 @@ export const StepCounter: React.FC<{ t: number; steps: number[]; end: number; on
 };
 
 // ---------- CTA ----------
-export const Cta: React.FC<{ t: number; start: number }> = ({ t, start }) => {
-  if (t < start) return null;
+export const Cta: React.FC<{ t: number; start: number; word: string; end?: number }> = ({ t, start, word, end = 1e9 }) => {
+  if (t < start || t >= end) return null;
   const p = ease(t, start, 0.3);
   const q = pop(t, start + 0.22, 0.4);
   const flicker = t - start < 0.6 ? (Math.floor((t - start) * 30) % 3 === 0 ? 0.55 : 1) : 1; // neon sign flicker on
@@ -268,7 +266,7 @@ export const Cta: React.FC<{ t: number; start: number }> = ({ t, start }) => {
         fontFamily: SANS, fontWeight: 900, fontSize: 176, color: "#FFE2CC", lineHeight: 1.05, letterSpacing: -4,
         opacity: Math.min(1, q * 2) * flicker, transform: `scale(${lerp(0.6, 1, q)})`,
         textShadow: `0 0 14px rgba(${C.accentGlow},1), 0 0 40px rgba(${C.accentGlow},0.9), 0 0 90px rgba(${C.accentGlow},0.6)`,
-      }}>“EDIT”</div>
+      }}>“{word}”</div>
     </div>
   );
 };

@@ -10,7 +10,7 @@ from keyer import key
 
 FF = r"C:\Users\talha\AppData\Local\Microsoft\WinGet\Packages\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\ffmpeg-9.0.2-full_build\bin\ffmpeg.exe"
 ROOT = r"C:\AI Video Editing"
-SRC = os.path.join(ROOT, r"raw-footage\IMG_2292.MOV")
+SRC = os.path.join(ROOT, r"raw-footage\IMG_2294.MOV")
 PUB = os.path.join(ROOT, r"editor\public")
 W, H, FPS = 1080, 1920, 30
 
@@ -20,8 +20,9 @@ cuts = json.load(open(os.path.join(PUB, "cuts.json")))["cuts"]
 parts, labels = [], []
 for i, c in enumerate(cuts):
     d = c["e"] - c["s"]
-    parts.append(f"[0:v]trim={c['s']}:{c['e']},setpts=PTS-STARTPTS,fps={FPS}[v{i}]")
-    parts.append(f"[0:a]atrim={c['s']}:{c['e']},asetpts=PTS-STARTPTS,"
+    parts.append(f"[0:v]trim={c['s']}:{c['e']},setpts=PTS-STARTPTS,fps={FPS},scale={W}:{H}:flags=lanczos[v{i}]")
+    mute = ",volume=0" if c.get("gap") else ""  # proof inserts: picture only, the clone clip plays in Remotion
+    parts.append(f"[0:a]atrim={c['s']}:{c['e']},asetpts=PTS-STARTPTS{mute},"
                  f"afade=t=in:d=0.012,afade=t=out:st={d - 0.012:.3f}:d=0.012[a{i}]")
     labels.append(f"[v{i}][a{i}]")
 parts.append("".join(labels) + f"concat=n={len(cuts)}:v=1:a=1[v][a]")
