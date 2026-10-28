@@ -40,7 +40,7 @@ ffmpeg is not on Git Bash PATH; scripts use the full winget path. Python scripts
    - Files over 30 MB can't reach the user's phone, so mention that or make a compressed copy.
 
 ## Identity bits the user asked for
-- Sign-off catchphrase: **"Boys, let's go"**, on the sting plus an end card (they'll say it in future recordings).
+- Sign-off catchphrase: **"Let's go, boys"**, on the sting plus an end card (they'll say it in future recordings).
 - **Verdict** before the CTA: `VerdictStamp` in `src/Verdict.tsx` over a full-face section, using the user's own spoken verdict. Never invent their opinion.
 - They'll gesture with their hands more: check the key doesn't clip hands at the frame edges.
 

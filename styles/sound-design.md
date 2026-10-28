@@ -47,7 +47,7 @@ Several sources warn that an effect on every caption or cut becomes noise, and v
 - A short sound that's only yours, repeated in the same places every video, becomes recognisable. Most of the world's top brands now have one, according to amp's audio brands report.
 - Honest caveat: academic evidence on sound logos is thin and mixed. It works through *repetition and consistency* rather than magic.
 - **Yours (draft):** `sting_signature.wav`, a two-note rising pluck (a fifth up) with a short echo. It plays on every STEP change and on your sign-off. **You need to hear it and approve it**, because I can't listen.
-- **Catchphrase:** "**Boys, let's go**" as the spoken sign-off, landing on the sting and a branded end card. Same words, same sound, same visual every time.
+- **Catchphrase:** "**Let's go, boys**" as the spoken sign-off, landing on the sting and a branded end card. Same words, same sound, same visual every time.
 
 ## Levels (targets)
 
