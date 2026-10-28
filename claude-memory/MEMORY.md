@@ -1,3 +1,4 @@
 - [Reel style project](reel-style-project.md) — copying a creator's tech-explainer reel style; spec in analysis/STYLE_GUIDE.md
 - [Video tooling setup](video-tooling-setup.md) — ffmpeg path, drawtext font, faster-whisper decode workaround
 - [User brand identity](user-brand-identity.md) — electric orange look, music + SFX wanted, keep voice nearly raw, check false starts with medium.en
+- [Reel repo](reference-repo.md) — private GitHub repo syncing the recipe between the user's two PCs
