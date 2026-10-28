@@ -1,0 +1,13 @@
+# media + generated files (too big / reproducible)
+references/
+raw-footage/
+output/
+analysis/*
+!analysis/STYLE_GUIDE.md
+editor/node_modules/
+editor/public/face.webm
+editor/public/voice.wav
+editor/public/sfx/
+*.mov
+*.MOV
+__pycache__/
