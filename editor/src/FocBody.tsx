@@ -23,7 +23,8 @@ export const STAMPS: { at: number; ok: boolean }[] = [
   { at: wordAt("chef's", "c2"), ok: true },       // FilmCraft: effects work, "chef's kiss"
   { at: wordAt("fact", "c3"), ok: true },         // EffectCraft: "Bingo, this is fact"
 ];
-const T = { verdict: beatStart("verdict"), end: beatStart("end") };
+// the last FACT stamp gets its moment before the verdict lands
+const T = { verdict: Math.max(beatStart("verdict"), STAMPS[STAMPS.length - 1].at + 1.4), end: beatStart("end") };
 
 const APPS: Record<string, { n: string; name: string; like: string }> = {
   install: { n: "", name: "getartcraft.com", like: "the download" },
