@@ -6,8 +6,8 @@
 """
 import json, os, subprocess
 
-FF = r"C:\Users\talha\AppData\Local\Microsoft\WinGet\Packages\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\ffmpeg-9.0.2-full_build\bin\ffmpeg.exe"
-PUB = r"C:\AI Video Editing\editor\public"
+FF = os.path.expandvars(r"%LOCALAPPDATA%\Microsoft\WinGet\Packages\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\ffmpeg-9.0.2-full_build\bin\ffmpeg.exe")
+PUB = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "public"))
 TRACK = os.path.join(PUB, r"audio\music_digital_clouds.mp3")
 MUSIC_FROM = 28.5   # seconds into the track: lands on the fuller section
 OPEN_TIME = 0.35    # how long the filter takes to open

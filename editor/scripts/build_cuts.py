@@ -10,7 +10,7 @@ Outputs (in editor/public/):
 """
 import difflib, json, os, re
 
-ROOT = r"C:\AI Video Editing"
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 A = os.path.join(ROOT, r"analysis\vs")
 medium = json.load(open(os.path.join(A, "words_medium.json")))
 small = json.load(open(os.path.join(A, "words.json")))

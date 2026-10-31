@@ -2,9 +2,9 @@
 
 usage: python master.py <in.mp4> <out.mp4>
 """
-import json, subprocess, sys
+import json, os, subprocess, sys
 
-FF = r"C:\Users\talha\AppData\Local\Microsoft\WinGet\Packages\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\ffmpeg-9.0.2-full_build\bin\ffmpeg.exe"
+FF = os.path.expandvars(r"%LOCALAPPDATA%\Microsoft\WinGet\Packages\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\ffmpeg-9.0.2-full_build\bin\ffmpeg.exe")
 src, dst = sys.argv[1], sys.argv[2]
 stats = subprocess.run([FF, "-hide_banner", "-i", src, "-vn", "-af", "loudnorm=I=-14:TP=-1:LRA=11:print_format=json",
                         "-f", "null", "-"], capture_output=True, text=True).stderr

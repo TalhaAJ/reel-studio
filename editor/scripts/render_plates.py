@@ -8,8 +8,8 @@ import json, os, subprocess, sys
 import numpy as np
 from keyer import key
 
-FF = r"C:\Users\talha\AppData\Local\Microsoft\WinGet\Packages\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\ffmpeg-9.0.2-full_build\bin\ffmpeg.exe"
-ROOT = r"C:\AI Video Editing"
+FF = os.path.expandvars(r"%LOCALAPPDATA%\Microsoft\WinGet\Packages\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\ffmpeg-9.0.2-full_build\bin\ffmpeg.exe")
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 SRC = os.path.join(ROOT, r"raw-footage\IMG_2294.MOV")
 PUB = os.path.join(ROOT, r"editor\public")
 W, H, FPS = 1080, 1920, 30

@@ -8,8 +8,8 @@ import difflib, json, os, re, subprocess
 import numpy as np
 from faster_whisper import WhisperModel
 
-FF = r"C:\Users\talha\AppData\Local\Microsoft\WinGet\Packages\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\ffmpeg-9.0.2-full_build\bin\ffmpeg.exe"
-PUB = r"C:\AI Video Editing\editor\public"
+FF = os.path.expandvars(r"%LOCALAPPDATA%\Microsoft\WinGet\Packages\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\ffmpeg-9.0.2-full_build\bin\ffmpeg.exe")
+PUB = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "public"))
 SR = 16000
 ONSET_THR = 0.03   # RMS (full scale) that counts as "speaking" on the loudness-normalised voice
 SNAP_WIN = (-0.12, 0.45)

@@ -10,12 +10,12 @@ Their **style presets** live in `styles/`. Unless they name another, use `styles
 Read it first: it is the spec for colours, captions, layouts, sound and loudness.
 `analysis/STYLE_GUIDE.md` describes the reference creator the structure came from. Use it for structure only, never for identity.
 
-To restore the exact template code of a preset: `git checkout style/<preset> -- editor/src editor/scripts` (run from `C:\AI Video Editing`).
+To restore the exact template code of a preset: `git checkout style/<preset> -- editor/src editor/scripts` (run from the repo root).
 When the user asks to experiment, work on a git branch (`exp/<idea>`) so the preset tag stays intact.
 
-## Pipeline (all paths relative to `C:\AI Video Editing`)
+## Pipeline (all paths relative to the repo root: `C:\reel-studio` or `C:\AI Video Editing`, depending on the PC)
 
-ffmpeg is not on Git Bash PATH; scripts use the full winget path. Python scripts must run from `editor/scripts` (not with `-I`: they import each other).
+ffmpeg is not on Git Bash PATH; scripts use the full winget path under `%LOCALAPPDATA%`, and find the repo root from their own location. Python scripts must run from `editor/scripts` (not with `-I`: they import each other).
 
 1. **Probe** the new clip in `raw-footage/` (ffprobe). iPhone .MOV is 1080x1920 @60 after rotation. Make an overview contact sheet and look at it: green-screen coverage, where the wall starts (`WALL_Y` in `scripts/keyer.py`), and head position (`SRC_FACE_TOP` in `src/Layers.tsx`).
 2. **Transcribe** with `python scripts/transcribe.py <clip> analysis/mine/words_medium.json` (medium.en). Also keep a small.en pass at `analysis/mine/words.json` as a fallback for words the medium model drops. Then run silencedetect (-38 dB, d=0.15) into `analysis/mine/silences.txt`.

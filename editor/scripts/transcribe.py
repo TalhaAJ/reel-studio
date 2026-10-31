@@ -3,9 +3,10 @@ import json, os, subprocess, sys
 import numpy as np
 from faster_whisper import WhisperModel
 
-FF = r"C:\Users\talha\AppData\Local\Microsoft\WinGet\Packages\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\ffmpeg-9.0.2-full_build\bin\ffmpeg.exe"
-src = sys.argv[1] if len(sys.argv) > 1 else r"C:\AI Video Editing\raw-footage\IMG_2292.MOV"
-out = sys.argv[2] if len(sys.argv) > 2 else r"C:\AI Video Editing\analysis\mine\words_medium.json"
+FF = os.path.expandvars(r"%LOCALAPPDATA%\Microsoft\WinGet\Packages\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\ffmpeg-9.0.2-full_build\bin\ffmpeg.exe")
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+src = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, r"raw-footage\IMG_2292.MOV")
+out = sys.argv[2] if len(sys.argv) > 2 else os.path.join(ROOT, r"analysis\mine\words_medium.json")
 
 raw = subprocess.run([FF, "-v", "error", "-i", src, "-ac", "1", "-ar", "16000", "-f", "f32le", "-"], capture_output=True).stdout
 m = WhisperModel("medium.en", device="cpu", compute_type="int8")
