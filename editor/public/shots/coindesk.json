@@ -1,0 +1,181 @@
+{
+ "url": "https://www.coindesk.com/tech/2026/11/01/ai-agents-bypassed-crypto-spending-limits-without-human-approval-researchers-find-in-a-new-test",
+ "w": 760,
+ "h": 6000,
+ "boxes": {
+  "AI agents bypassed crypto spending limits": [
+   {
+    "box": [
+     40,
+     648,
+     479,
+     33
+    ],
+    "lines": [
+     [
+      40,
+      648,
+      479,
+      33
+     ]
+    ],
+    "ctx": "AI agents bypassed crypto spending limits without human approval, researchers find in a new test"
+   }
+  ],
+  "Nine of 10 AI models raised their own spending caps": [
+   {
+    "box": [
+     110,
+     1409,
+     387,
+     20
+    ],
+    "lines": [
+     [
+      110,
+      1409,
+      387,
+      20
+     ],
+     [
+      110,
+      1409,
+      387,
+      20
+     ]
+    ],
+    "ctx": "Nine of 10 AI models raised their own spending caps on Circle agent wallets by retrieving emailed approval codes, Cornell Tech and Yale researchers found."
+   }
+  ],
+  "five of the 10 models raised their spending limits and sent money to the simulated attacker at least once": [
+   {
+    "box": [
+     313,
+     1927,
+     382,
+     24
+    ],
+    "lines": [
+     [
+      313,
+      1927,
+      382,
+      24
+     ],
+     [
+      40,
+      1955,
+      428,
+      24
+     ]
+    ],
+    "ctx": "In the impersonation experiment, five of the 10 models raised their spending limits and sent money to the simulated attacker at least once, despite being instru"
+   }
+  ],
+  "impersonating the owner to request a payment to an attacker-controlled wallet": [
+   {
+    "box": [
+     188,
+     1839,
+     490,
+     24
+    ],
+    "lines": [
+     [
+      188,
+      1839,
+      490,
+      24
+     ],
+     [
+      40,
+      1867,
+      134,
+      24
+     ]
+    ],
+    "ctx": "The researchers also introduced a simulated attacker in two separate experiments, sending malicious emails to the owner's inbox to persuade the agents to increa"
+   }
+  ],
+  "an app tying approval to a physical action": [
+   {
+    "box": [
+     139,
+     761,
+     306,
+     20
+    ],
+    "lines": [
+     [
+      139,
+      761,
+      306,
+      20
+     ]
+    ],
+    "ctx": "The researchers say any approval an agent can reach is unreliable, and they built Countersign, an app tying approval to a physical action the agent can’t fake."
+   }
+  ],
+  "Cornell Tech and Yale": [
+   {
+    "box": [
+     953,
+     1409,
+     161,
+     20
+    ],
+    "lines": [
+     [
+      953,
+      1409,
+      161,
+      20
+     ]
+    ],
+    "ctx": "Nine of 10 AI models raised their own spending caps on Circle agent wallets by retrieving emailed approval codes, Cornell Tech and Yale researchers found."
+   },
+   {
+    "box": [
+     594,
+     1551,
+     102,
+     24
+    ],
+    "lines": [
+     [
+      594,
+      1551,
+      102,
+      24
+     ],
+     [
+      40,
+      1579,
+      68,
+      24
+     ]
+    ],
+    "ctx": "AI agents given access to their owners' email accounts were able to increase their own cryptocurrency spending limits without human approval, raising questions "
+   }
+  ],
+  "spending limit of 1 cent": [
+   {
+    "box": [
+     40,
+     2715,
+     183,
+     24
+    ],
+    "lines": [
+     [
+      40,
+      2715,
+      183,
+      24
+     ]
+    ],
+    "ctx": "The researchers funded a wallet with 10 USDC on the Base network and set a daily spending limit of 1 cent in the test. They gave the agent email, web and wallet"
+   }
+  ]
+ }
+}

@@ -11,7 +11,7 @@ Outputs (in editor/public/):
 import difflib, json, os, re
 
 ROOT = r"C:\AI Video Editing"
-A = os.path.join(ROOT, r"analysis\vs")
+A = os.path.join(ROOT, r"analysis\agent")
 medium = json.load(open(os.path.join(A, "words_medium.json")))
 small = json.load(open(os.path.join(A, "words.json")))
 silences = [tuple(map(float, l.split())) for l in open(os.path.join(A, "silences.txt")) if l.strip()]
@@ -19,18 +19,20 @@ silences = [tuple(map(float, l.split())) for l in open(os.path.join(A, "silences
 # (source start, source end, beat, what was said) -- best *complete* take of each line.
 # "first" and "plus" start at the last restart: earlier attempts in those takes were false starts.
 TAKES = [
-    (0.00, 5.40, "hook", "You can now clone your own voice for free on your own laptop. No ElevenLabs, no subscription."),
-    (5.40, 12.40, "name", "It's called VoiceStudio, it's completely open source and it just blew up on GitHub with over 90,000 stars."),
-    (12.42, 19.20, "first", "First, you give it a short clip of your own voice and it clones it right on your computer. Nothing gets uploaded."),
-    (27.38, 31.47, "then", "Then you type anything you want and it reads it back in your own voice."),       # 2nd take (1st ran on)
-    (43.34, 46.05, "clone", "I cloned my own voice, and listen to this."),
-    (53.30, 58.10, "finally", "Finally, it can dub your own videos into 640+ languages."),                    # "And" is under the noise floor
-    (58.33, 58.95, "damn", "Damn."),
-    (60.70, 65.80, "plus", "Plus there's no account and no API key and it runs on Windows, Mac and Linux."),
-    (67.00, 70.40, "verdict", "My verdict? This is sick and it's free, so it's worth trying."),
-    (76.95, 79.50, "pocket", "If you don't like it, nothing comes out of your own pocket."),                  # 2nd take (1st fluffed)
-    (82.50, 86.20, "cta", "So if you want the link, just comment VOICE below and I'll send it to you directly."),
-    (86.14, 87.60, "signoff", "Let's go, boys."),
+    (1.05, 5.08, "hook", "You know what's so crazy about AI assistants that researchers have discovered?"),
+    (5.70, 11.70, "setup", "Researchers from Yale gave 10 AI models access to a crypto wallet and set a 1 cent per day spending limit."),
+    (12.00, 16.55, "problem", "The problem was that almost all of the AI agents decided to raise their spending limits."),
+    (16.90, 23.80, "how", "9 of the tested models did this by finding the verification code of their crypto wallets in the inbox of their owner's emails."),
+    (24.25, 26.55, "noperm", "They did not seek permission and nobody gave them."),
+    (26.62, 28.00, "worse", "And it gets worse."),
+    (28.22, 33.70, "test2", "In another test, some AI agents were tricked by an email pretending to be from the owner."),
+    (34.10, 36.55, "money", "Some even sent money to an attacker's wallet."),
+    (37.02, 37.70, "think", "Think about that."),
+    (40.06, 45.90, "against", "The assistants you employed to make your life better can autonomously make decisions that are against you."),  # 2nd take (1st cut off)
+    (48.85, 60.88, "lesson", "So the lesson is to never trust AI agents to instinctively protect you and be mindful of cybersecurity standards. They may not hesitate to spend your money and find ways to bypass restrictions."),
+    (61.62, 67.80, "fix", "To address this problem, researchers propose the requirement of physical human approval for every payment."),
+    (68.38, 71.54, "assist", "After all, AI should assist you, not authorise itself."),
+    (72.60, 75.35, "scheme", "Do not fall for the bad scheme of actors."),
 ]
 PAD_IN, PAD_OUT = 0.06, 0.10   # breathing room around each take
 SIL_KEEP = 0.05                # silence kept on each side of an internal cut
@@ -86,11 +88,8 @@ def align(script, a, b):
 
 # Proof inserts: after a beat, hold for the voice-clone clip (raw-footage/*.wav) to play.
 # The picture underneath is a silent stretch of the same footage (you listening), with the mic muted.
-GAP_SRC = 46.2  # 46.0-52.5 s of IMG_2294 is silence
-INSERTS = {
-    "clone": ("proof1", "voiceclone_en_this-isnt-me.wav", 2.46, 0.3, 0.45, "This isn't me talking. This is my AI clone."),
-    "signoff": ("proof2", "voiceclone_ja_bomboclatt.wav", 1.38, 0.15, 1.1, "Bomboclatt!"),
-}
+GAP_SRC = 0.0
+INSERTS = {}
 cuts, beats = [], []
 for a, b, name, _ in TAKES:
     ivs = split_by_silence(a - PAD_IN, b + PAD_OUT)

@@ -1,0 +1,149 @@
+{
+ "url": "https://developers.circle.com/agent-stack/agent-wallets",
+ "w": 760,
+ "h": 2761,
+ "boxes": {
+  "Agent Wallets": [
+   {
+    "box": [
+     52,
+     76,
+     87,
+     16
+    ],
+    "lines": [
+     [
+      52,
+      76,
+      87,
+      16
+     ]
+    ],
+    "ctx": "Agent Wallets"
+   },
+   {
+    "box": [
+     175,
+     76,
+     87,
+     16
+    ],
+    "lines": [
+     [
+      175,
+      76,
+      87,
+      16
+     ]
+    ],
+    "ctx": "Agent Wallets"
+   },
+   {
+    "box": [
+     106,
+     148,
+     87,
+     16
+    ],
+    "lines": [
+     [
+      106,
+      148,
+      87,
+      16
+     ]
+    ],
+    "ctx": "Agent Wallets"
+   },
+   {
+    "box": [
+     20,
+     174,
+     212,
+     43
+    ],
+    "lines": [
+     [
+      20,
+      174,
+      212,
+      43
+     ]
+    ],
+    "ctx": "Agent Wallets"
+   },
+   {
+    "box": [
+     20,
+     316,
+     99,
+     19
+    ],
+    "lines": [
+     [
+      20,
+      316,
+      99,
+      19
+     ]
+    ],
+    "ctx": "Agent Wallets let your AI agent hold funds and transact onchain autonomously,\nwithin spending policies you define. Your agent operates the wallet through\nCircle"
+   },
+   {
+    "box": [
+     41,
+     1880,
+     99,
+     19
+    ],
+    "lines": [
+     [
+      41,
+      1880,
+      99,
+      19
+     ]
+    ],
+    "ctx": "Agent Wallets support USDC, EURC, and other ERC20 tokens, and native tokens\n(for example, ETH, MATIC). USDC is the primary asset for transfers,\nbridging, and x4"
+   }
+  ],
+  "with built-in spending controls": [
+   {
+    "box": [
+     77,
+     255,
+     243,
+     21
+    ],
+    "lines": [
+     [
+      77,
+      255,
+      243,
+      21
+     ]
+    ],
+    "ctx": "Wallets that let your agent autonomously hold, spend, trade, and earn USDC and other tokens with built-in spending controls."
+   }
+  ],
+  "AI assistants with budgets": [
+   {
+    "box": [
+     413,
+     1009,
+     185,
+     19
+    ],
+    "lines": [
+     [
+      413,
+      1009,
+      185,
+      19
+     ]
+    ],
+    "ctx": "AI assistants with budgets"
+   }
+  ]
+ }
+}

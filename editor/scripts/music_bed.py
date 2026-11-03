@@ -14,10 +14,10 @@ OPEN_TIME = 0.35    # how long the filter takes to open
 
 caps = json.load(open(os.path.join(PUB, "captions.json")))
 total = json.load(open(os.path.join(PUB, "cuts.json")))["total"]
-hook_end = next(c["s"] for c in caps if c["beat"] == "name") - 0.05
+hook_end = next(c["s"] for c in caps if c["beat"] == "setup") - 0.05
 
 # muffled and full versions crossfaded with time-based gains
-af = (f"[0]atrim=start={MUSIC_FROM}:duration={total + 1},asetpts=PTS-STARTPTS,asplit=2[a][b];"
+af = (f"[0]atrim=start={MUSIC_FROM}:duration={total + 3},asetpts=PTS-STARTPTS,asplit=2[a][b];"
       f"[a]lowpass=f=700,lowpass=f=700,volume='if(lt(t,{hook_end}),1,max(0,1-(t-{hook_end})/{OPEN_TIME}))':eval=frame,volume=1.25[m];"
       f"[b]volume='if(lt(t,{hook_end}),0,min(1,(t-{hook_end})/{OPEN_TIME}))':eval=frame[f];"
       f"[m][f]amix=inputs=2:normalize=0[o]")

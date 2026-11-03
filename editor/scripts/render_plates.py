@@ -10,7 +10,7 @@ from keyer import key
 
 FF = r"C:\Users\talha\AppData\Local\Microsoft\WinGet\Packages\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\ffmpeg-9.0.2-full_build\bin\ffmpeg.exe"
 ROOT = r"C:\AI Video Editing"
-SRC = os.path.join(ROOT, r"raw-footage\IMG_2294.MOV")
+SRC = os.path.join(ROOT, r"raw-footage\IMG_2356.MOV")
 PUB = os.path.join(ROOT, r"editor\public")
 W, H, FPS = 1080, 1920, 30
 
@@ -59,16 +59,23 @@ enc = subprocess.Popen([FF, "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "
                         "-r", str(FPS), "-i", "-", "-c:v", "libvpx-vp9", "-pix_fmt", "yuva420p",
                         "-b:v", "6M", "-deadline", "realtime", "-cpu-used", "8", "-row-mt", "1",
                         "-auto-alt-ref", "0", os.path.join(PUB, "face.webm")], stdin=subprocess.PIPE)
-n, size = 0, W * H * 3
+n, size, track = 0, W * H * 3, []
 while True:
     buf = dec.stdout.read(size)
     if len(buf) < size:
         break
-    enc.stdin.write(key(np.frombuffer(buf, np.uint8).reshape(H, W, 3)).tobytes())
+    k = key(np.frombuffer(buf, np.uint8).reshape(H, W, 3))
+    enc.stdin.write(k.tobytes())
+    # head track for the face square: centre x of the head band, and the top of the hair
+    a = k[600:1150, :, 3].astype(np.float32)
+    cols = a.sum(0)
+    rows = np.nonzero(k[300:1300, :, 3].sum(1) > 255 * 40)[0]
+    track.append([round(float((cols * np.arange(W)).sum() / max(cols.sum(), 1)), 1), int(rows[0] + 300) if len(rows) else 700])
     n += 1
     if n % 150 == 0:
         print(f"keyed {n} frames", flush=True)
 enc.stdin.close()
 enc.wait()
 dec.wait()
+json.dump(track, open(os.path.join(PUB, "headtrack.json"), "w"))
 print(f"done: {n} frames ({n / FPS:.2f}s)")

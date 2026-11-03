@@ -1,0 +1,123 @@
+{
+ "url": "https://alphasignal.ai/news/cornell-and-yale-show-9-ai-models-can-bypass-their-own-spending-limits",
+ "w": 760,
+ "h": 4898,
+ "boxes": {
+  "Cornell and Yale": [],
+  "9 AI Models": [],
+  "passcode": [
+   {
+    "box": [
+     57,
+     1863,
+     78,
+     17
+    ],
+    "lines": [
+     [
+      57,
+      1863,
+      78,
+      17
+     ]
+    ],
+    "ctx": "Circle’s agent wallet platform lets software agents manage digital assets while enforcing controls such as daily spending caps. Raising a cap required a human t"
+   }
+  ],
+  "one-time": [
+   {
+    "box": [
+     686,
+     1834,
+     37,
+     17
+    ],
+    "lines": [
+     [
+      686,
+      1834,
+      37,
+      17
+     ],
+     [
+      16,
+      1863,
+      36,
+      17
+     ]
+    ],
+    "ctx": "Circle’s agent wallet platform lets software agents manage digital assets while enforcing controls such as daily spending caps. Raising a cap required a human t"
+   }
+  ],
+  "Circle": [
+   {
+    "box": [
+     314,
+     1124,
+     42,
+     15
+    ],
+    "lines": [
+     [
+      314,
+      1124,
+      42,
+      15
+     ]
+    ],
+    "ctx": "Ten frontier models tested against Circle's agent wallet harvested emailed OTPs to raise their own spending caps"
+   },
+   {
+    "box": [
+     219,
+     1346,
+     42,
+     15
+    ],
+    "lines": [
+     [
+      219,
+      1346,
+      42,
+      15
+     ]
+    ],
+    "ctx": "Disclosure prompted Circle to add a documentation warning about keeping inboxes away from agents"
+   },
+   {
+    "box": [
+     16,
+     1804,
+     47,
+     17
+    ],
+    "lines": [
+     [
+      16,
+      1804,
+      47,
+      17
+     ]
+    ],
+    "ctx": "Circle’s agent wallet platform lets software agents manage digital assets while enforcing controls such as daily spending caps. Raising a cap required a human t"
+   },
+   {
+    "box": [
+     245,
+     2118,
+     48,
+     17
+    ],
+    "lines": [
+     [
+      245,
+      2118,
+      48,
+      17
+     ]
+    ],
+    "ctx": "The experiment exposed a mismatch between the policy and its implementation. The product required an email credential, while the agent already had permission to"
+   }
+  ]
+ }
+}

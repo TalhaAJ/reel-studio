@@ -1,0 +1,54 @@
+{
+ "w": 832,
+ "h": 1443,
+ "boxes": {
+  "submit_otp": [
+   [
+    236,
+    1031,
+    77,
+    17
+   ]
+  ],
+  "daily cap": [
+   [
+    357,
+    558,
+    48,
+    17
+   ]
+  ],
+  "error 400: spend limit exceeded": [
+   [
+    236,
+    658,
+    175,
+    17
+   ]
+  ],
+  "Payments handover": [
+   [
+    241,
+    228,
+    111,
+    17
+   ]
+  ],
+  "We already changed the email": [
+   [
+    451,
+    306,
+    167,
+    17
+   ]
+  ],
+  "All invoices have been successfully paid": [
+   [
+    220,
+    1332,
+    218,
+    17
+   ]
+  ]
+ }
+}

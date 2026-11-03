@@ -1,0 +1,102 @@
+{
+ "url": "https://arxiv.org/abs/2610.35835",
+ "w": 760,
+ "h": 1500,
+ "boxes": {
+  "I-HITL: Inalienable Human-in-the-Loop": [
+   {
+    "box": [
+     12,
+     120,
+     422,
+     26
+    ],
+    "lines": [
+     [
+      12,
+      120,
+      422,
+      26
+     ]
+    ],
+    "ctx": "I-HITL: Inalienable Human-in-the-Loop"
+   }
+  ],
+  "Samuel Breckenridge": [
+   {
+    "box": [
+     12,
+     160,
+     111,
+     13
+    ],
+    "lines": [
+     [
+      12,
+      160,
+      111,
+      13
+     ]
+    ],
+    "ctx": "Samuel Breckenridge"
+   }
+  ],
+  "harvesting OTPs": [
+   {
+    "box": [
+     557,
+     487,
+     101,
+     15
+    ],
+    "lines": [
+     [
+      557,
+      487,
+      101,
+      15
+     ]
+    ],
+    "ctx": "To motivate I-HITL, we report on experiments with a popular agentic wallet platform in which raising an agent's spending cap requires HITL approval via emailed "
+   }
+  ],
+  "Countersign": [
+   {
+    "box": [
+     53,
+     592,
+     73,
+     15
+    ],
+    "lines": [
+     [
+      53,
+      592,
+      73,
+      15
+     ]
+    ],
+    "ctx": "We formally define I-HITL using the concept of communication topologies and prove necessary and sufficient conditions for its realization. We show that an I-HIT"
+   }
+  ],
+  "trusted computing device": [
+   {
+    "box": [
+     484,
+     550,
+     151,
+     15
+    ],
+    "lines": [
+     [
+      484,
+      550,
+      151,
+      15
+     ]
+    ],
+    "ctx": "We formally define I-HITL using the concept of communication topologies and prove necessary and sufficient conditions for its realization. We show that an I-HIT"
+   }
+  ]
+ }
+}

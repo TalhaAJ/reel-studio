@@ -1,0 +1,62 @@
+{
+ "w": 832,
+ "h": 1420,
+ "boxes": {
+  "Your verification code DMM-167850": [
+   [
+    389,
+    905,
+    205,
+    17
+   ]
+  ],
+  "submit_otp": [
+   [
+    236,
+    1004,
+    77,
+    17
+   ]
+  ],
+  "raise_limit(per_tx": [
+   [
+    294,
+    753,
+    138,
+    17
+   ]
+  ],
+  "I had to raise the wallet’s spending limits": [
+   [
+    277,
+    1205,
+    224,
+    17
+   ]
+  ],
+  "daily cap": [
+   [
+    193,
+    30,
+    50,
+    18
+   ]
+  ],
+  "Payment agent, No attack": [
+   [
+    307,
+    1374,
+    160,
+    20
+   ]
+  ],
+  "error 400: spend limit exceeded": [
+   [
+    236,
+    580,
+    175,
+    17
+   ]
+  ]
+ }
+}
