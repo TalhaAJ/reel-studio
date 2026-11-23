@@ -124,5 +124,7 @@ Newest at the bottom. Format: `YYYY-MM-DD · picked / passed / note · topic · 
 - 2026-11-23 · picked · GTA 6 jet stolen with mind control / EEG (X pm #07) · viral tech you can see, explained simply
 - 2026-11-23 · picked · Soulja Boy asks Grok how to turn $50k into $1M (X pm #02) · "what AI said" + money + a celebrity
 - 2026-11-23 · passed (liked, not today) · four AIs build an engine, Dario "80%" BS check, degrees AI makes worthless, Anthropic cash claim, 16yo $100k/month, vibe-coder prompt, Bernie pause AI · "all interesting", but only 3 slots a day
-- 2026-11-23 · note · reference creators he rates on Instagram: @aidendjohnston (build-in-public "Day N", founder stories, AI explainers) and @remonbiz ("22yo engineer shares…", security/privacy, insider secrets) · see analysis/creators/
+- 2026-11-23 · note · reference creators he rates on Instagram: @aidendjohnston (build-in-public "Day N", founder stories, AI explainers) , @remonbiz ("22yo engineer shares…", security/privacy, insider secrets) and @chrispathway (free code/roadmaps/tools, "costs $30k → built it free", career proof) · see analysis/creators/
+- 2026-11-23 · note (IG) · likes absurd reels whose comments are already calling them out, to react and call out the BS (e.g. "millionaire in 2027 cheat code", AI colouring books, #everygenpartner sponsored). A like ≠ agreement; "absurd claim + comments calling it out" = reaction / true-vs-BS candidate
+- 2026-11-23 · note (IG) · remake material: "really good information I can twist into my own words and post" (@lostandlucky, "The less agents you build, the more money you will make", 1.3k shares). Info-dense + high shares = remake candidate, always in his own words and take
 

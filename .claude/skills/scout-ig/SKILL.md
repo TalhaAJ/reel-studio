@@ -37,7 +37,7 @@ Follow `analysis/ig-playbook.md`. If it doesn't exist yet, use the default routi
 7. Only with his OK, for 1–3 top reels: deep-dive with the `rea-video` tool (transcript, timed frames, cut rhythm) to study the structure. Study only, never repost.
 
 ### Reference creators
-Creators Talha rates are studied in `analysis/creators/<handle>.md` (story, outliers, format, comments, lessons). Each scout run, open each tracked creator's `/<handle>/reels/` grid, run `__igs.profile()`, and report any **new** outlier (≥3× their median, posted since the last report) with what it's about. Structure and ideas only; never copy a creator's identity. Tracked: `aidendjohnston`, `remonbiz`.
+Creators Talha rates are studied in `analysis/creators/<handle>.md` (story, outliers, format, comments, lessons). Each scout run, open each tracked creator's `/<handle>/reels/` grid, run `__igs.profile()`, and report any **new** outlier (≥3× their median, posted since the last report) with what it's about. Structure and ideas only; never copy a creator's identity. Tracked: `aidendjohnston`, `remonbiz`, `chrispathway`.
 Helpers: inject `.claude/skills/scout-ig/ig_scout.js` in the scout's tab, then `__igs.reel()`, `__igs.comments()` (with the comments open), `__igs.profile()` (on a profile's Reels tab).
 
 ### Default routine (until Watch mode has learned his)
