@@ -102,6 +102,7 @@ The cleaner feed gave 0.65 ideas/min vs 0.24, and he skipped 40% of posts instea
 Bonus +2: a new chapter in a story he already covered (see the table).
 Bonus +2 (learned 2026-11-22 watch): an AI model's answer that's going viral (Grok / Gemini / Claude replies). Bonus +1: bookmarks ≥ ~60% of likes (people save it, so it's useful). Bonus +1: a huge claim he can fact-check in simple terms.
 Bonus +2 (learned 2nd watch): it fits one of his formats: explainer ("what is X and why it matters"), summarise-a-long-video, "testing X so you don't have to", build-to-flex, or insider sauce. Bonus +1: from a source he keeps stopping on (@rileybrown, @gregisenberg).
+Bonus +2 (learned 2026-11-23 picks): a **famous person or a giant pop-culture moment** at the centre (Jensen, Soulja Boy, GTA 6), as long as it's a tech story underneath. Those beat pure-tech posts with similar numbers. He posts **3 a day**, so rank for a clear top 3, with variety (one drama, one tech-explained, one AI-said/money).
 **Always write 3 hook options** per topic: he asked for a better hook on 3 notes.
 Penalty: −3 already covered with no new chapter; −2 needs a paid account to demo; −2 only rumours with no credible source; skip entirely anything that's just one anonymous account's claim about a private person.
 
@@ -118,3 +119,8 @@ Newest at the bottom. Format: `YYYY-MM-DD · picked / passed / note · topic · 
 - 2026-11-22 · passed · first scout report · 3 of 5 were his own notes or posts he'd scrolled past; "it is not giving me anything new". Rule: the shortlist only has topics he hasn't seen
 - 2026-11-22 · note · channel identity · "the one for everything": new tools, new models explained, true vs bullshit, simple for beginners, advice for the future, psychology, self-improvement, and drama too
 - 2026-11-22 · note · report v2 "slowly becoming better" · wants 10 topics, freshest and fastest-rising first, and more creative angles
+- 2026-11-23 · picked · Jensen reinstated as Nvidia CEO (X pm #01) · drama sequel (part 3), 4.9M views in 1 h
+- 2026-11-23 · picked · GTA 6 jet stolen with mind control / EEG (X pm #07) · viral tech you can see, explained simply
+- 2026-11-23 · picked · Soulja Boy asks Grok how to turn $50k into $1M (X pm #02) · "what AI said" + money + a celebrity
+- 2026-11-23 · passed (liked, not today) · four AIs build an engine, Dario "80%" BS check, degrees AI makes worthless, Anthropic cash claim, 16yo $100k/month, vibe-coder prompt, Bernie pause AI · "all interesting", but only 3 slots a day
+

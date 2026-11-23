@@ -70,7 +70,7 @@ The other scout: a **cloud routine** ("Reel news digest (7am)", https://claude.a
 X gets things wrong. For each of the top 5, and any lower topic built on a factual claim, check the primary source outside X (WebSearch "standard", or the company post / GitHub API / news outlet) and note: what's confirmed, what's rumour, the real numbers. A topic that's only rumour can still go out, but label it **unconfirmed** so he can frame it as "allegations" like he did with Jensen.
 
 ## 5. Report
-Save to `scouting/YYYY-MM-DD.md` and show it in chat. For each of the 10 topics:
+Save to `scouting/YYYY-MM-DD.md` and show it in chat. Start the report with **Today's 3**: the three it would post today (he uploads 3 a day), mixed: one drama/celebrity, one tech-explained, one AI-said/money/advice, with one line each on why. Then, for each of the 10 topics:
 - **Title** and score (`12/15`), one line on why it's hot (with the numbers: "2.1M views in 9 h, quoted by @x and @y").
 - **Posted / velocity**: when it was posted and views per hour.
 - **Creative angle**: the twist (see step 3).
