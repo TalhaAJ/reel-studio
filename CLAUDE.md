@@ -14,6 +14,7 @@ Each new video gets its own chat in the **🎬 Reel Studio** sidebar group, titl
 - `scripts/`: every script so far (also the list of topics already covered, so don't repeat them)
 - `editor/`: Remotion template; `editor/scripts/` for the pipeline; `SETUP.md` for a new PC
 - `/scout-x` (`.claude/skills/scout-x/`): finds reel topics on X in his Chrome and learns his taste (`analysis/taste-profile.md`, `ideas/ideas.txt`, Watch mode logs in `scouting/watch/`). Reports go in `scouting/`; the 7am cloud web digest goes in `scouting/digest/`
+- `/script-agent` (`.claude/skills/script-agent/`): writes the script for a picked topic in Talha's voice. Rules live in `analysis/script-tone.md` (rule #1: conversational Gen Z; #2: no comma lists; #3: flowing talk, no fragments), his edits in `analysis/script-feedback.md`, and the approved example is `scripts/2026-11-23-jensen-is-back.md`. Reference creators' transcripts stay local (gitignored); re-transcribe on a new PC with `transcribe.py` (see the skill, §6)
 - `analysis/STYLE_GUIDE.md`: the reference creator's structure (structure only, never identity)
 
 ## Rules that matter

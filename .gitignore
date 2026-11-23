@@ -5,6 +5,8 @@ output/
 analysis/*
 !analysis/STYLE_GUIDE.md
 !analysis/taste-profile.md
+!analysis/script-tone.md
+!analysis/script-feedback.md
 editor/node_modules/
 editor/public/face.webm
 editor/public/voice.wav
@@ -12,3 +14,8 @@ editor/public/sfx/
 *.mov
 *.MOV
 __pycache__/
+
+# Other creators' downloaded reels + transcripts: private study only
+analysis/creators/*/scripts/*.mp4
+analysis/creators/*/scripts/*.json
+analysis/creators/*/scripts/*.txt
