@@ -55,7 +55,10 @@ Go through these, noting each candidate post: author + handle, follower scale if
 Skip posts older than ~4 days unless they're a new chapter of a covered story.
 
 ### News digest
-The other scout. If `scouting/digest/` has a file from the last 24 h (the latest `YYYY-MM-DD*.md`), read it before searching and pull 3–6 short keywords from its headlines (names, products, companies). Talha's digest task may live on his other PC or on claude.ai; if no digest file is found, skip this and say so in one line.
+The other scout: a **cloud routine** ("Reel news digest (7am)", https://claude.ai/code/routines/trig_014e9dQoGhGAGu8h3pmPWR3H) runs at 07:00 UTC with the PC off, researches the web (news, GitHub, Hacker News, Reddit), and pushes `scouting/digest/YYYY-MM-DD.md` to **master** on GitHub. Each item lists 1–2-word **X keywords**.
+- Before searching X, get the newest digest without touching his working branch: `git -C C:/reel-studio fetch -q origin master`, then `git -C C:/reel-studio ls-tree --name-only origin/master scouting/digest/` and `git -C C:/reel-studio show origin/master:scouting/digest/<newest>.md`.
+- Use it only if it's from the last 24 h. Search its "Keywords for X" on X (1–2 words each), and check which items are actually blowing up there; those rank higher. Digest items that are quiet on X can still make the top 10 if they're strong, marked "from the digest".
+- No digest in 24 h? Say so in one line and carry on.
 
 ## 3. Score and cluster
 - Merge posts about the same story into one topic.
