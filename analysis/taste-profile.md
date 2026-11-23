@@ -9,6 +9,7 @@ What the X scout (`/scout-x`) scores topics against. It **learns**: every time T
 - **True vs bullshit**: fact-checking big claims, hype and bait
 - **Drama**: tech scandals and big-tech fights (Jensen-style), with his take
 - **Advice for the future**: careers, jobs vs AI, opportunities, money
+- **Security & privacy** (added by Talha 2026-11-23, inspired by @remonbiz): "your phone/password/location is exposed, here's the fix": hacks, leaks, exploits, scams, explained simply with the practical fix
 - **Psychology and self-improvement**: hard truths, mindset, communication (e.g. "how to become articulate")
 - "and etc.": anything his audience would stop for, where he can add a simple explanation or a straight take
 
@@ -123,4 +124,5 @@ Newest at the bottom. Format: `YYYY-MM-DD · picked / passed / note · topic · 
 - 2026-11-23 · picked · GTA 6 jet stolen with mind control / EEG (X pm #07) · viral tech you can see, explained simply
 - 2026-11-23 · picked · Soulja Boy asks Grok how to turn $50k into $1M (X pm #02) · "what AI said" + money + a celebrity
 - 2026-11-23 · passed (liked, not today) · four AIs build an engine, Dario "80%" BS check, degrees AI makes worthless, Anthropic cash claim, 16yo $100k/month, vibe-coder prompt, Bernie pause AI · "all interesting", but only 3 slots a day
+- 2026-11-23 · note · reference creators he rates on Instagram: @aidendjohnston (build-in-public "Day N", founder stories, AI explainers) and @remonbiz ("22yo engineer shares…", security/privacy, insider secrets) · see analysis/creators/
 

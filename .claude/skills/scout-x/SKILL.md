@@ -53,6 +53,7 @@ Go through these, noting each candidate post: author + handle, post text (short 
    - Drama: `AI leaked`, `OpenAI drama`, `AI sued`, `CEO fired`
    - Money/career: `AI replaced`, `AI salary`, `solo founder`
    - Showable: `AI video`, `benchmark`, `crazy demo`
+   - Security & privacy (lane added 2026-11-23): `data breach`, `got hacked`, `new scam`, `exploit`, `privacy`
    - Plus 1–2 words for every **ongoing story** he's covered (`Jensen`) and every **digest keyword**.
    Check **Latest** (`&f=live`) as well as **Top** (`&f=top`): Latest is where early outliers show up.
 5. **Quote tweets of official posts.** When a big official account announces something (a model launch, a company blog, an IPO), open its **Quotes** (`<post url>/quotes`), not only the replies. The gem is usually a small account stress-testing it, breaking it, or spotting something in the fine print, with a screen recording or a side-by-side.

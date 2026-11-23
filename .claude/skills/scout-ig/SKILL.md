@@ -36,6 +36,10 @@ Follow `analysis/ig-playbook.md`. If it doesn't exist yet, use the default routi
 6. **Trending audio:** list sounds used by 2+ outlier reels. He adds them in the app at upload; never download or bake them in.
 7. Only with his OK, for 1–3 top reels: deep-dive with the `rea-video` tool (transcript, timed frames, cut rhythm) to study the structure. Study only, never repost.
 
+### Reference creators
+Creators Talha rates are studied in `analysis/creators/<handle>.md` (story, outliers, format, comments, lessons). Each scout run, open each tracked creator's `/<handle>/reels/` grid, run `__igs.profile()`, and report any **new** outlier (≥3× their median, posted since the last report) with what it's about. Structure and ideas only; never copy a creator's identity. Tracked: `aidendjohnston`, `remonbiz`.
+Helpers: inject `.claude/skills/scout-ig/ig_scout.js` in the scout's tab, then `__igs.reel()`, `__igs.comments()` (with the comments open), `__igs.profile()` (on a profile's Reels tab).
+
 ### Default routine (until Watch mode has learned his)
 Hold 4 s → if it's in his lane, watch to the end → open the comments (read the top 15) → open the profile → read the views on the last 12 reels → open the top reel if it's 3× their median.
 
