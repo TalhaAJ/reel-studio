@@ -1,0 +1,39 @@
+TALHA'S IDEAS (the scout reads this every run, so press Ctrl+S after typing)
+Write anything: a topic, a hook, a rant, and WHY it grabs you. The why teaches it most.
+Example:  Jensen again - people love a fall from grace, and nobody's explaining the China angle
+------------------------------------------------------------------------
+
+
+What would happen if AI replaces 50% of software engineers by 2030? Talk about how grok answered this question with a transition career plan obciously make the hook better
+
+Cold harsh truth from gemini 4 neon on how untetested potential is more valuable than finite reality, this post talks about how people who don't try think they can do better than the one who tries
+
+Let claude rent GPUS in this video Riley brown talks how you can rent compute from Nvidia with only 10$/h and talk about how this is great to do all sort of stuffs have to watch the video for more script
+
+
+Antrophic Mathematician Verifies Riemann Hypothesis Proof with AI- talk about the actual truth, explain in simple term the problem, verify if it has been solved and etc...
+
+The biggest opportunities right now... Talk about some of the business plans given from greg Isenberg
+
+What an interesting eek in the world of AI agents riley brown watch the video summarise what he said in 40 second short
+
+Testing Gemini 4 Neon so you don't have to 
+
+You can now make game/animated scenes with Agents in 3d within 4 hours make the hook better and etc...
+
+
+China open sourced a peanut sized OCR that parses entire 100 page pdfs in one shot- make the title more better 
+
+What is t3 and why is it important to learn--
+
+Apparently AI could destroy humanity without killing single human-- talk about why
+
+Elon Musk declares that Singluarity is here-- explain what that is and why is important
+
+There is a RAE render anything engine-- explain what that is and what it can do and etc...
+
+Create this project that this Chinese guy is doing to flex on Instagram--
+
+you can learn about the next AI breakthrough by just reading AI labs and RL env startups job posts--..
+
+How to become articulate-- Sumamarise the two hour post and turn into a 40 seconds short

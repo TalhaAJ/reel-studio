@@ -4,6 +4,7 @@ raw-footage/
 output/
 analysis/*
 !analysis/STYLE_GUIDE.md
+!analysis/taste-profile.md
 editor/node_modules/
 editor/public/face.webm
 editor/public/voice.wav

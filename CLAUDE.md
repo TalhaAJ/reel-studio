@@ -13,6 +13,7 @@ Each new video gets its own chat in the **🎬 Reel Studio** sidebar group, titl
 - `styles/`: style presets (default `electric-orange-v2.md`; `v1` is the older look) and `sound-design.md`
 - `scripts/`: every script so far (also the list of topics already covered, so don't repeat them)
 - `editor/`: Remotion template; `editor/scripts/` for the pipeline; `SETUP.md` for a new PC
+- `/scout-x` (`.claude/skills/scout-x/`): finds reel topics on X in his Chrome and learns his taste (`analysis/taste-profile.md`, `ideas/ideas.txt`, Watch mode logs in `scouting/watch/`). Reports go in `scouting/`; the 7am cloud web digest goes in `scouting/digest/`
 - `analysis/STYLE_GUIDE.md`: the reference creator's structure (structure only, never identity)
 
 ## Rules that matter
